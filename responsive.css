@@ -1,0 +1,465 @@
+/* ======================================
+   LARGE TABLET
+====================================== */
+
+@media (max-width: 1200px){
+
+    .hero-title{
+        font-size:72px;
+    }
+
+    .hero-monogram{
+        font-size:72px;
+    }
+
+    .opening-couple{
+        font-size:68px;
+    }
+
+    .section-title{
+        font-size:48px;
+    }
+
+    .photo-frame{
+        width:280px;
+        height:380px;
+    }
+
+}
+
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 992px){
+
+    .section{
+        padding:100px 0;
+    }
+
+    .hero-title{
+        font-size:64px;
+    }
+
+    .hero-monogram{
+        font-size:70px;
+    }
+
+    .couple-wrapper{
+
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .couple-separator{
+        display:none;
+    }
+
+    .family-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        left:20px;
+    }
+
+    .timeline-item{
+        width:100%;
+        margin-left:0 !important;
+        padding-left:60px !important;
+        padding-right:0 !important;
+    }
+
+    .gallery-grid{
+        columns:2 250px;
+    }
+
+    .count-box{
+        width:160px;
+    }
+
+}
+
+
+/* ======================================
+   MOBILE LANDSCAPE
+====================================== */
+
+@media (max-width: 768px){
+
+    .container{
+        width:94%;
+    }
+
+    .section{
+        padding:90px 0;
+    }
+
+    .opening-frame{
+        padding:50px 25px;
+    }
+
+    .opening-couple{
+        font-size:58px;
+        line-height:1.2;
+    }
+
+    .guest-name{
+        font-size:26px;
+    }
+
+    .hero{
+        min-height:100vh;
+    }
+
+    .hero-monogram{
+        font-size:58px;
+        gap:15px;
+    }
+
+    .hero-monogram small{
+        font-size:28px;
+    }
+
+    .hero-title{
+        font-size:54px;
+    }
+
+    .hero-date{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .arabic-text{
+        font-size:26px;
+        line-height:2;
+    }
+
+    .photo-frame{
+        width:260px;
+        height:340px;
+    }
+
+    .couple-name{
+        font-size:36px;
+    }
+
+    .countdown-wrapper{
+        gap:15px;
+    }
+
+    .count-box{
+        width:140px;
+        padding:25px 15px;
+    }
+
+    .count-box h2{
+        font-size:42px;
+    }
+
+    .timeline-content h3{
+        font-size:24px;
+    }
+
+    .event-card h2{
+        font-size:38px;
+    }
+
+    .gift-card h2{
+        font-size:32px;
+        word-break:break-all;
+    }
+
+    .closing-content h2{
+        font-size:48px;
+    }
+
+    .closing-content h3{
+        font-size:44px;
+    }
+
+    .gallery-grid{
+        columns:2 180px;
+    }
+
+}
+
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 576px){
+
+    body{
+        font-size:14px;
+    }
+
+    .section{
+        padding:80px 0;
+    }
+
+    .corner{
+        width:120px;
+    }
+
+    .opening-frame{
+        padding:40px 20px;
+        border-radius:24px;
+    }
+
+    .opening-moon{
+        width:90px;
+    }
+
+    .opening-subtitle{
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .opening-couple{
+        font-size:48px;
+    }
+
+    .opening-date{
+        font-size:14px;
+    }
+
+    .guest-label{
+        font-size:13px;
+    }
+
+    .guest-name{
+        font-size:22px;
+    }
+
+    .guest-desc{
+        font-size:13px;
+    }
+
+    .open-btn{
+        width:100%;
+        padding:15px;
+    }
+
+    .hero-monogram{
+        font-size:48px;
+    }
+
+    .hero-title{
+        font-size:42px;
+    }
+
+    .hero-subtitle{
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .hero-frame{
+        width:130px;
+    }
+
+    .hero-date{
+        font-size:15px;
+    }
+
+    .moon-glow{
+        width:250px;
+        height:250px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .section-subtitle{
+        font-size:13px;
+    }
+
+    .section-divider{
+        width:130px;
+    }
+
+    .quran-card{
+        padding:35px 20px;
+    }
+
+    .arabic-text{
+        font-size:22px;
+        line-height:1.9;
+    }
+
+    .translation{
+        font-size:14px;
+    }
+
+    .card-corner{
+        width:70px;
+    }
+
+    .couple-card{
+        padding:30px 20px;
+    }
+
+    .photo-frame{
+        width:220px;
+        height:300px;
+    }
+
+    .couple-name{
+        font-size:30px;
+    }
+
+    .family-card{
+        padding:25px 20px;
+    }
+
+    .family-card h3{
+        font-size:20px;
+    }
+
+    .family-card ul li{
+        font-size:14px;
+    }
+
+    .countdown-wrapper{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+    .count-box{
+        width:100%;
+        padding:20px 10px;
+    }
+
+    .count-box h2{
+        font-size:36px;
+    }
+
+    .timeline-item{
+        padding-left:45px !important;
+    }
+
+    .timeline-content{
+        padding:20px;
+    }
+
+    .timeline-content h3{
+        font-size:22px;
+    }
+
+    .gallery-grid{
+        columns:1;
+    }
+
+    .event-card{
+        padding:35px 20px;
+    }
+
+    .event-card h2{
+        font-size:32px;
+    }
+
+    .event-card h3{
+        font-size:22px;
+    }
+
+    .location-btn{
+        width:100%;
+    }
+
+    .gift-card{
+        padding:35px 20px;
+    }
+
+    .gift-card h2{
+        font-size:26px;
+    }
+
+    .gift-btn{
+        width:100%;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .wish-form input,
+    .wish-form textarea{
+        padding:15px;
+    }
+
+    .rsvp-form button,
+    .wish-form button{
+        width:100%;
+    }
+
+    .closing-content h2{
+        font-size:38px;
+    }
+
+    .closing-content h3{
+        font-size:36px;
+    }
+
+    footer{
+        padding:40px 20px;
+    }
+
+    .footer-content h3{
+        font-size:28px;
+    }
+
+    .footer-content h4{
+        font-size:18px;
+    }
+
+    #backToTop{
+        width:50px;
+        height:50px;
+        right:15px;
+        bottom:15px;
+    }
+
+}
+
+
+/* ======================================
+   SMALL MOBILE
+====================================== */
+
+@media (max-width: 380px){
+
+    .opening-couple{
+        font-size:40px;
+    }
+
+    .hero-title{
+        font-size:34px;
+    }
+
+    .hero-monogram{
+        font-size:40px;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .photo-frame{
+        width:190px;
+        height:260px;
+    }
+
+    .count-box h2{
+        font-size:30px;
+    }
+
+    .gift-card h2{
+        font-size:22px;
+    }
+
+}
