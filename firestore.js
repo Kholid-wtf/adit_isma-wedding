@@ -223,3 +223,100 @@ if (wishList) {
     );
 
 }
+// ======================================
+// REALTIME RSVP
+// ======================================
+
+const rsvpList =
+    document.getElementById(
+        "rsvpList"
+    );
+
+if (rsvpList) {
+
+    const hadirCount =
+        document.getElementById(
+            "hadirCount"
+        );
+
+    const tidakHadirCount =
+        document.getElementById(
+            "tidakHadirCount"
+        );
+
+    const rsvpQuery =
+        query(
+            rsvpCollection,
+            orderBy(
+                "createdAt",
+                "desc"
+            )
+        );
+
+    onSnapshot(
+        rsvpQuery,
+        (snapshot) => {
+
+            rsvpList.innerHTML = "";
+
+            let hadir = 0;
+            let tidakHadir = 0;
+
+            snapshot.forEach(
+                (doc) => {
+
+                    const data =
+                        doc.data();
+
+                    if (
+                        data.status ===
+                        "Hadir"
+                    ) {
+
+                        hadir++;
+
+                    } else {
+
+                        tidakHadir++;
+
+                    }
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+                    item.className =
+                        "rsvp-card";
+
+                    item.innerHTML = `
+                        <div class="rsvp-name">
+                            ${data.name}
+                        </div>
+
+                        <div class="rsvp-status">
+                            ${
+                                data.status === "Hadir"
+                                ? "✅ Hadir"
+                                : "❌ Tidak Hadir"
+                            }
+                        </div>
+                    `;
+
+                    rsvpList.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+            hadirCount.textContent =
+                hadir;
+
+            tidakHadirCount.textContent =
+                tidakHadir;
+
+        }
+    );
+
+}
