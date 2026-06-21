@@ -45,6 +45,66 @@ html{
     0 15px 35px rgba(212,175,55,.12);
 
 }
+
+/* =======================================
+   PREMIUM CARD
+======================================= */
+
+.couple-card,
+.family-card,
+.event-card,
+.gift-card,
+.rsvp-card,
+.wish-card,
+.timeline-content{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.couple-card::after,
+.family-card::after,
+.event-card::after,
+.gift-card::after,
+.rsvp-card::after,
+.wish-card::after,
+.timeline-content::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        120deg,
+        transparent 25%,
+        rgba(255,255,255,.08),
+        transparent 70%
+    );
+
+    transform:translateX(-130%);
+
+    transition:1s;
+
+}
+
+.couple-card:hover::after,
+.family-card:hover::after,
+.event-card:hover::after,
+.gift-card:hover::after,
+.rsvp-card:hover::after,
+.wish-card:hover::after,
+.timeline-content:hover::after{
+
+    transform:translateX(130%);
+
+}
+
 body{
 
     background:
@@ -63,6 +123,67 @@ body{
     overflow-x:hidden;
 
     line-height:1.8;
+
+    position:relative;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    background:
+
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(212,175,55,.12),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 85% 10%,
+        rgba(109,31,47,.20),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 50% 80%,
+        rgba(212,175,55,.08),
+        transparent 30%
+    );
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    opacity:.08;
+
+    background-image:
+
+    radial-gradient(
+        rgba(255,255,255,.25) 1px,
+        transparent 1px
+    );
+
+    background-size:26px 26px;
 
 }
 
@@ -480,7 +601,7 @@ background-attachment:fixed;
 
     position:relative;
 
-    z-index:5;
+    z-index:2;
 
     width:100%;
 
@@ -1147,6 +1268,7 @@ rgba(109,31,47,.65) 100%
 
     transition:.35s;
 
+
 }
 
 .couple-card::before{
@@ -1160,26 +1282,21 @@ rgba(109,31,47,.65) 100%
     background:
 
     linear-gradient(
-
-        135deg,
-
-        rgba(212,175,55,.05),
-
-        transparent 45%
-
+        120deg,
+        transparent 25%,
+        rgba(255,255,255,.08),
+        transparent 75%
     );
 
-    pointer-events:none;
+    transform:translateX(-120%);
+
+    transition:1s;
 
 }
 
-.couple-card:hover{
+.couple-card:hover::before{
 
-    transform:translateY(-6px);
-
-    box-shadow:
-    var(--shadow),
-    var(--shadow-gold);
+    transform:translateX(120%);
 
 }
 
@@ -1207,21 +1324,19 @@ rgba(109,31,47,.65) 100%
 
 .photo-frame img{
 
-    filter:
-
-    contrast(1.03)
-
-    brightness(.98)
-
-    saturate(1.05);
-
     width:100%;
 
     height:100%;
 
     object-fit:cover;
 
-    transition:.5s;
+    transition:.8s;
+
+    filter:
+
+    brightness(.98)
+
+    saturate(1.08);
 
 }
 
@@ -1229,9 +1344,13 @@ rgba(109,31,47,.65) 100%
 
     transform:
 
-    scale(1.08)
+    scale(1.08);
 
-    rotate(.4deg);
+    filter:
+
+    brightness(1.08)
+
+    saturate(1.18);
 
 }
 
@@ -1576,7 +1695,7 @@ rgba(109,31,47,.65) 100%
     background:
     linear-gradient(
         180deg,
-        #1A080E,
+        #36131f,
         #240B14
     );
 
@@ -1793,6 +1912,40 @@ rgba(109,31,47,.65) 100%
     transition:.35s;
 
     position:relative;
+
+    cursor:pointer;
+
+}
+
+.gallery-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        to top,
+
+        rgba(0,0,0,.35),
+
+        transparent
+
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.gallery-item:hover::before{
+
+    opacity:1;
 
 }
 
@@ -2285,7 +2438,7 @@ rotate(.5deg);
 
     ),
 
-    url(".cover.jpg");
+    url("./cover.jpg");
 
     background-size:cover;
 
