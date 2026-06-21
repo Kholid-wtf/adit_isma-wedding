@@ -1333,7 +1333,23 @@ footer{
     }
 
 }
-/* RSVP */
+/* =====================================
+   RSVP PREMIUM
+===================================== */
+
+.rsvp-title{
+
+    margin:40px 0 25px;
+
+    text-align:center;
+
+    color:var(--gold);
+
+    font-size:30px;
+
+    font-family:'Cormorant Garamond',serif;
+
+}
 
 .rsvp-summary{
 
@@ -1343,57 +1359,119 @@ footer{
 
     gap:20px;
 
-    margin-top:30px;
-
     flex-wrap:wrap;
+
+    margin-top:35px;
 
 }
 
 .rsvp-count{
 
-    min-width:160px;
+    width:170px;
 
     padding:25px;
 
-    border-radius:20px;
+    border-radius:22px;
 
     text-align:center;
 
-    background:
-    rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
 
-    border:
-    1px solid rgba(212,175,55,.25);
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    transition:.35s;
+
+}
+
+.rsvp-count:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--gold);
 
 }
 
 .rsvp-count h3{
 
-    font-size:2rem;
+    font-size:34px;
 
     color:var(--gold);
+
+    margin-bottom:8px;
+
+}
+
+.rsvp-count p{
+
+    color:#eee;
 
 }
 
 #rsvpList{
 
-    margin-top:30px;
+    margin-top:35px;
 
 }
 
 .rsvp-card{
 
-    background:
-    rgba(255,255,255,.05);
+    background:rgba(255,255,255,.05);
 
-    border:
-    1px solid rgba(212,175,55,.25);
+    backdrop-filter:blur(12px);
 
-    border-radius:20px;
+    border:1px solid rgba(212,175,55,.2);
+
+    border-radius:22px;
 
     padding:20px;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
+
+    transition:.3s;
+
+}
+
+.rsvp-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--gold);
+
+}
+
+.rsvp-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#D4AF37,#FFEAA7);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#222;
+
+    font-size:22px;
+
+    font-weight:bold;
 
 }
 
@@ -1401,12 +1479,30 @@ footer{
 
     color:var(--gold);
 
+    font-size:18px;
+
     font-weight:700;
 
 }
 
 .rsvp-status{
 
-    margin-top:8px;
+    margin-top:5px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.rsvp-status.hadir{
+
+    color:#4CAF50;
+
+}
+
+.rsvp-status.tidak{
+
+    color:#F44336;
 
 }
