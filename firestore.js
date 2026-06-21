@@ -261,61 +261,61 @@ if (rsvpList) {
 
             let hadir = 0;
             let tidakHadir = 0;
-
-            snapshot.forEach(
-                (doc) => {
-
-                    const data =
-                        doc.data();
-
-                    if (
-                        data.status ===
-                        "Hadir"
-                    ) {
-
-                        hadir++;
-
-                    } else {
-
-                        tidakHadir++;
-
-                    }
-
-                    const item =
-                        document.createElement(
-                            "div"
-                        );
-
-                    item.className =
-                        "rsvp-card";
-
-                    item.innerHTML = `
-                        <div class="rsvp-name">
-                            ${data.name}
-                        </div>
-
-                        <div class="rsvp-status">
-                            ${
-                                data.status === "Hadir"
-                                ? "✅ Hadir"
-                                : "❌ Tidak Hadir"
-                            }
-                        </div>
-                    `;
-
-                    rsvpList.appendChild(
-                        item
-                    );
-
+            let total = 0;
+            
+            snapshot.forEach((doc) => {
+            
+                const data = doc.data();
+            
+                if (data.status === "Hadir") {
+            
+                    hadir++;
+            
                 }
-            );
-
-            hadirCount.textContent =
-                hadir;
-
-            tidakHadirCount.textContent =
-                tidakHadir;
-
+            
+                if (data.status === "Tidak Hadir") {
+            
+                    tidakHadir++;
+            
+                }
+            
+                total++;
+            
+                const item = document.createElement("div");
+            
+                item.className = "rsvp-card";
+            
+                item.innerHTML = `
+                    <div class="rsvp-header">
+            
+                        <div class="avatar">
+                            ${(data.name || "?").charAt(0).toUpperCase()}
+                        </div>
+            
+                        <div>
+            
+                            <div class="rsvp-name">
+                                ${data.name}
+                            </div>
+            
+                            <div class="rsvp-status ${data.status === "Hadir" ? "hadir" : "tidak"}">
+                                ${data.status === "Hadir" ? "🟢 Hadir" : "🔴 Tidak Hadir"}
+                            </div>
+            
+                        </div>
+            
+                    </div>
+                `;
+            
+                rsvpList.appendChild(item);
+            
+            });
+            
+            document.getElementById("totalRsvp").textContent = total;
+            
+            hadirCount.textContent = hadir;
+            
+            tidakHadirCount.textContent = tidakHadir;
         }
     );
 
