@@ -79,16 +79,15 @@ if (rsvpForm) {
 
                 rsvpForm.reset();
 
-            } catch (error) {
+           } catch (error) {
 
-                console.error(error);
+    console.error(error);
 
-                alert(
-                    "Gagal mengirim RSVP."
-                );
+    alert(
+        "RSVP Error: " + error.message
+    );
 
-            }
-
+}
         }
     );
 
