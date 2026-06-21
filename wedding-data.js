@@ -123,10 +123,11 @@ const weddingData = {
     ],
 
     groomSide: [
-      "Kel. Bpk Neb",
+      "Kel. Bpk Eneb",
       "Kel. Bpk Asrul",
+      "Kel. Bpk Ajah",
       "Kel. Bpk Tantan",
-      "Kel. Bpk Ajah Subarjah",
+      "Kel. Bpk Amin",
     ],
   },
 
