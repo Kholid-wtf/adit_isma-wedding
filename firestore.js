@@ -203,13 +203,62 @@ if (wishList) {
                             "div"
                         );
 
-                    item.classList.add(
-                        "wish-item"
-                    );
+                    const date =
+                        data.createdAt
+                            ? data.createdAt.toDate()
+                            : new Date();
+
+                    item.className =
+                        "wish-card";
 
                     item.innerHTML = `
-                        <h4>${data.name}</h4>
-                        <p>${data.message}</p>
+
+                        <div class="wish-header">
+
+                            <div class="wish-avatar">
+
+                                ${(data.name || "?")
+                                    .charAt(0)
+                                    .toUpperCase()}
+
+                            </div>
+
+                            <div>
+
+                                <div class="wish-name">
+
+                                    ${data.name}
+
+                                </div>
+
+                                <div class="wish-date">
+
+                                    ${date.toLocaleDateString(
+                                        "id-ID"
+                                    )}
+
+                                    •
+
+                                    ${date.toLocaleTimeString(
+                                        "id-ID",
+                                        {
+                                            hour: "2-digit",
+                                            minute: "2-digit"
+                                        }
+                                    )}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="wish-message">
+
+                            ${data.message}
+
+                        </div>
+
                     `;
 
                     wishList.appendChild(
@@ -223,6 +272,7 @@ if (wishList) {
     );
 
 }
+
 // ======================================
 // REALTIME RSVP
 // ======================================
