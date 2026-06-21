@@ -1145,7 +1145,103 @@ button{
     flex-direction:column;
     gap:20px;
 }
+/* =======================================
+   PREMIUM WISH CARD
+======================================= */
 
+.wish-card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    transition:.35s;
+
+}
+
+.wish-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--gold);
+
+}
+
+.wish-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:15px;
+
+}
+
+.wish-avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #D4AF37,
+        #FFEAA7
+    );
+
+    color:#222;
+
+    font-weight:bold;
+
+    font-size:22px;
+
+}
+
+.wish-name{
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    font-size:18px;
+
+}
+
+.wish-date{
+
+    margin-top:5px;
+
+    font-size:13px;
+
+    color:#bcbcbc;
+
+}
+
+.wish-message{
+
+    line-height:1.8;
+
+    color:#f5f5f5;
+
+    white-space:pre-line;
+
+}
 
 /* =======================================
    CLOSING
