@@ -1333,3 +1333,80 @@ footer{
     }
 
 }
+/* RSVP */
+
+.rsvp-summary{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.rsvp-count{
+
+    min-width:160px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(212,175,55,.25);
+
+}
+
+.rsvp-count h3{
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+}
+
+#rsvpList{
+
+    margin-top:30px;
+
+}
+
+.rsvp-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(212,175,55,.25);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+}
+
+.rsvp-name{
+
+    color:var(--gold);
+
+    font-weight:700;
+
+}
+
+.rsvp-status{
+
+    margin-top:8px;
+
+}
