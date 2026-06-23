@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setText("groomName", data.couple.groom.fullName);
     setText("groomFather", data.couple.groom.father);
     setText("groomMother", data.couple.groom.mother);
-
+/*
     // FAMILY
     const brideList = document.getElementById("familyBride");
     const groomList = document.getElementById("familyGroom");
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     data.families.groom.forEach(item => {
         groomList.innerHTML += `<li>${item}</li>`;
     });
-
+*/
     // MUSIC
     if (backgroundMusic) {
         backgroundMusic.src = data.music.file;
