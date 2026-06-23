@@ -1,20 +1,17 @@
 // ======================================
-// GALLERY.JS
-// Premium Lightbox Gallery
+// GALLERY.JS PREMIUM V2
 // ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const galleryImages =
+    const images =
         document.querySelectorAll(
             ".gallery-item img"
         );
 
-    if (!galleryImages.length) return;
+    if (!images.length) return;
 
-    // ======================================
-    // LIGHTBOX
-    // ======================================
+    let currentIndex = 0;
 
     const lightbox =
         document.createElement("div");
@@ -23,16 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lightbox.innerHTML = `
         <span id="lightboxClose">&times;</span>
-        <img id="lightboxImage" src="">
+
+        <button id="galleryPrev">
+            &#10094;
+        </button>
+
+        <img id="lightboxImage">
+
+        <button id="galleryNext">
+            &#10095;
+        </button>
     `;
 
     document.body.appendChild(
         lightbox
     );
 
-    // ======================================
+    // ============================
     // STYLE
-    // ======================================
+    // ============================
 
     Object.assign(
         lightbox.style,
@@ -44,95 +50,182 @@ document.addEventListener("DOMContentLoaded", () => {
             display: "none",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: "99999",
-            padding: "20px"
+            zIndex: "99999"
         }
     );
 
-    const lightboxImage =
+    const img =
         document.getElementById(
             "lightboxImage"
         );
 
     Object.assign(
-        lightboxImage.style,
+        img.style,
         {
-            maxWidth: "95%",
-            maxHeight: "95%",
-            borderRadius: "20px",
-            border:
-                "2px solid rgba(217,181,109,.5)"
+            maxWidth: "90%",
+            maxHeight: "90%",
+            borderRadius: "18px",
+            transition:
+                "all .3s ease"
         }
     );
 
-    const closeButton =
+    const close =
         document.getElementById(
             "lightboxClose"
         );
 
     Object.assign(
-        closeButton.style,
+        close.style,
         {
             position: "absolute",
-            top: "25px",
+            top: "20px",
             right: "30px",
-            color: "#fff",
             fontSize: "50px",
+            color: "#fff",
             cursor: "pointer",
-            fontWeight: "700"
+            zIndex: "2"
         }
     );
 
-    // ======================================
-    // OPEN
-    // ======================================
+    const prev =
+        document.getElementById(
+            "galleryPrev"
+        );
 
-    galleryImages.forEach((image) => {
+    const next =
+        document.getElementById(
+            "galleryNext"
+        );
 
-        image.addEventListener(
-            "click",
-            () => {
+    [prev, next].forEach(btn => {
 
-                lightbox.style.display =
-                    "flex";
-
-                lightboxImage.src =
-                    image.src;
-
-                document.body.style
-                    .overflow =
-                    "hidden";
-
+        Object.assign(
+            btn.style,
+            {
+                position: "absolute",
+                background: "none",
+                border: "none",
+                color: "#fff",
+                fontSize: "45px",
+                cursor: "pointer"
             }
         );
 
     });
 
-    // ======================================
-    // CLOSE
-    // ======================================
+    prev.style.left = "20px";
+    next.style.right = "20px";
+
+    // ============================
+    // FUNCTIONS
+    // ============================
+
+    function showImage(index) {
+
+        currentIndex = index;
+
+        img.src =
+            images[index].src;
+
+        lightbox.style.display =
+            "flex";
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
 
     function closeLightbox() {
 
         lightbox.style.display =
             "none";
 
-        document.body.style
-            .overflow =
+        document.body.style.overflow =
             "auto";
 
     }
 
-    closeButton.addEventListener(
+    function nextImage() {
+
+        currentIndex++;
+
+        if (
+            currentIndex >=
+            images.length
+        ) {
+
+            currentIndex = 0;
+
+        }
+
+        img.src =
+            images[currentIndex].src;
+
+    }
+
+    function prevImage() {
+
+        currentIndex--;
+
+        if (
+            currentIndex < 0
+        ) {
+
+            currentIndex =
+                images.length - 1;
+
+        }
+
+        img.src =
+            images[currentIndex].src;
+
+    }
+
+    // ============================
+    // EVENTS
+    // ============================
+
+    images.forEach(
+        (image, index) => {
+
+            image.addEventListener(
+                "click",
+                () => {
+
+                    showImage(
+                        index
+                    );
+
+                }
+            );
+
+        }
+    );
+
+    close.addEventListener(
         "click",
         closeLightbox
+    );
+
+    next.addEventListener(
+        "click",
+        nextImage
+    );
+
+    prev.addEventListener(
+        "click",
+        prevImage
     );
 
     lightbox.addEventListener(
         "click",
         (e) => {
 
-            if (e.target === lightbox) {
+            if (
+                e.target ===
+                lightbox
+            ) {
 
                 closeLightbox();
 
@@ -141,19 +234,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    // ======================================
-    // ESC KEY
-    // ======================================
-
     document.addEventListener(
         "keydown",
         (e) => {
 
             if (
-                e.key === "Escape"
+                lightbox.style.display !==
+                "flex"
+            ) return;
+
+            if (
+                e.key ===
+                "Escape"
             ) {
 
                 closeLightbox();
+
+            }
+
+            if (
+                e.key ===
+                "ArrowRight"
+            ) {
+
+                nextImage();
+
+            }
+
+            if (
+                e.key ===
+                "ArrowLeft"
+            ) {
+
+                prevImage();
 
             }
 
