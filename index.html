@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,11 @@
 
     <link rel="icon" href="favicon.png">
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -33,15 +34,11 @@
 
         <div class="loading-content">
 
-            <div class="loading-moon"></div>
+            <img src="moon.png" class="loading-moon" alt="Moon">
 
             <h1 class="loading-monogram">
                 A <span>&</span> I
             </h1>
-
-            <h2 class="loading-title">
-                Adit & Isma
-            </h2>
 
             <p class="loading-text">
                 Wedding Invitation
@@ -51,9 +48,8 @@
 
     </div>
 
-
     <!-- ========================= -->
-    <!-- FLOATING STARS -->
+    <!-- FLOATING SPARKLES -->
     <!-- ========================= -->
 
     <div class="floating-stars">
@@ -67,92 +63,62 @@
 
     </div>
 
-
     <!-- ========================= -->
     <!-- MUSIC -->
     <!-- ========================= -->
 
-    <audio
-        id="backgroundMusic"
-        loop
-        preload="auto">
+    <audio id="backgroundMusic" loop>
 
-        <source
-            src="anugerah-terindah.mp3"
-            type="audio/mpeg">
+        <source src="anugerah-terindah.mp3" type="audio/mpeg">
 
     </audio>
 
-
     <!-- ========================= -->
-    <!-- OPENING INVITATION -->
+    <!-- OPENING -->
     <!-- ========================= -->
 
     <section id="opening-section">
 
         <div class="opening-overlay"></div>
 
-        <img
-            src="corner.png"
-            class="corner corner-top-left">
-
-        <img
-            src="corner.png"
-            class="corner corner-top-right">
-
-        <img
-            src="corner.png"
-            class="corner corner-bottom-left">
-
-        <img
-            src="corner.png"
-            class="corner corner-bottom-right">
+        <img src="corner.png" class="corner top-left">
+        <img src="corner.png" class="corner top-right">
+        <img src="corner.png" class="corner bottom-left">
+        <img src="corner.png" class="corner bottom-right">
 
         <div class="opening-content">
 
-            <div class="opening-frame">
+            <div class="opening-card">
 
-                <img
-                    src="moon.png"
-                    class="opening-moon">
+                <img src="moon.png" class="opening-moon">
 
-                <h4 class="opening-subtitle">
+                <p class="opening-subtitle">
                     The Wedding Of
-                </h4>
+                </p>
 
-                <h1 class="opening-couple">
+                <h1 class="opening-title">
                     Adit
                     <span>&</span>
                     Isma
                 </h1>
 
+                <img src="gold-divider.png" class="opening-divider">
+
                 <p class="opening-date">
-                    05 Juli 2026
+                    Minggu, 05 Juli 2026
                 </p>
 
-                <div class="divider">
-                    <img
-                        src="gold-divider.png"
-                        alt="">
+                <div class="guest-wrapper">
+
+                    <span>Kepada Yth.</span>
+
+                    <h3 id="guestName">
+                        Tamu Undangan
+                    </h3>
+
                 </div>
 
-                <p class="guest-label">
-                    Kepada Yth.
-                </p>
-
-                <h3 id="guestName" class="guest-name">
-                    Tamu Undangan
-                </h3>
-
-                <p class="guest-desc">
-                    Tanpa mengurangi rasa hormat,
-                    kami mengundang Anda untuk hadir
-                    dalam acara pernikahan kami.
-                </p>
-
-                <button
-                    id="openInvitationBtn"
-                    class="open-btn">
+                <button id="openInvitationBtn" class="open-btn">
 
                     Buka Undangan
 
@@ -164,7 +130,6 @@
 
     </section>
 
-
     <!-- ========================= -->
     <!-- MAIN CONTENT -->
     <!-- ========================= -->
@@ -175,33 +140,32 @@
         <!-- HERO -->
         <!-- ========================= -->
 
-        <section id="hero">
+        <section id="hero-section">
+
+            <img src="cover.jpg" class="hero-bg">
 
             <div class="hero-overlay"></div>
 
-            <img
-                src="cover.jpg"
-                class="hero-bg"
-                alt="Adit Isma">
-
-            <div class="moon-glow"></div>
-
             <div class="hero-content">
+
+                <img src="floral.png" class="hero-floral floral-left">
+
+                <img src="floral.png" class="hero-floral floral-right">
 
                 <div class="hero-monogram">
 
-                    <span>A</span>
-                    <small>&</small>
-                    <span>I</span>
+                    A
+                    <span>&</span>
+                    I
 
                 </div>
 
-                <img
-                    src="moon.png"
-                    class="hero-frame">
+                <img src="moon.png" class="hero-moon">
 
                 <p class="hero-subtitle">
+
                     The Wedding Of
+
                 </p>
 
                 <h1 class="hero-title">
@@ -214,9 +178,7 @@
 
                 <p class="hero-date">
 
-                    Minggu
-                    <br>
-                    05 Juli 2026
+                    05 JULI 2026
 
                 </p>
 
@@ -230,13 +192,67 @@
 
         </section>
 
+               </section>
+
+        <!-- TEMPEL DI SINI -->
+
+        <section id="intro-section" class="section">
+
+            <div class="container">
+
+                <div class="section-header" data-aos="fade-up">
+
+                    <span class="section-subtitle">
+                        Assalamu'alaikum Warahmatullahi Wabarakatuh
+                    </span>
+
+                    <h2 class="section-title">
+                        Undangan Pernikahan
+                    </h2>
+
+                    <img
+                        src="gold-divider.png"
+                        class="section-divider">
+
+                </div>
+
+                <div class="intro-card" data-aos="zoom-in">
+
+                    <p>
+                        Dengan memohon rahmat dan ridho Allah SWT,
+                        kami bermaksud menyelenggarakan acara
+                        pernikahan putra-putri kami.
+                    </p>
+
+                    <p>
+                        Merupakan suatu kehormatan dan kebahagiaan
+                        bagi kami apabila Bapak/Ibu/Saudara/i
+                        berkenan hadir serta memberikan doa restu
+                        pada hari yang berbahagia ini.
+                    </p>
+
+                    <p>
+                        Kehadiran dan doa restu yang diberikan
+                        akan menjadi hadiah terindah bagi kami
+                        dalam memulai lembaran baru kehidupan
+                        sebagai pasangan suami istri.
+                    </p>
+
+                    <h4>
+                        Adit & Isma
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </section>
 
         <!-- ========================= -->
         <!-- QURAN SECTION -->
-        <!-- PART 2 MULAI DARI SINI -->
         <!-- ========================= -->
-                 <section id="quran-section" class="section">
 
+        <section id="quran-section" class="section">
             <div class="container">
 
                 <div class="section-header" data-aos="fade-up">
@@ -249,41 +265,41 @@
                         QS. Ar-Rum Ayat 21
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
                 <div class="quran-card" data-aos="zoom-in">
 
-                    <img
-                        src="corner.png"
+                    <img src="corner.png"
                         class="card-corner top-left">
 
-                    <img
-                        src="corner.png"
+                    <img src="corner.png"
                         class="card-corner top-right">
 
-                    <img
-                      src="corner.png"
+                    <img src="corner.png"
                         class="card-corner bottom-left">
 
-                    <img
-                        src="corner.png"
+                    <img src="corner.png"
                         class="card-corner bottom-right">
 
                     <p class="arabic-text">
-                        وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ
-                        اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ
-                        بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً
+
+                        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
+                        أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
+                        مَّوَدَّةً وَرَحْمَةً
+
                     </p>
 
                     <p class="translation">
-                        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
-                        menciptakan untukmu pasangan hidup dari jenismu sendiri
-                        supaya kamu mendapat ketenangan hati dan dijadikan-Nya
-                        di antaramu rasa kasih sayang."
+
+                        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia
+                        menciptakan pasangan-pasangan untukmu dari jenismu
+                        sendiri agar kamu cenderung dan merasa tenteram
+                        kepadanya, dan Dia menjadikan di antaramu rasa kasih
+                        dan sayang.
+
                     </p>
 
                     <h4>
@@ -305,35 +321,42 @@
 
             <div class="container">
 
-                <div class="section-header" data-aos="fade-up">
+                <div class="section-header"
+                    data-aos="fade-up">
 
                     <span class="section-subtitle">
+
                         Assalamu'alaikum Warahmatullahi Wabarakatuh
+
                     </span>
 
                     <h2 class="section-title">
                         Mempelai
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
+                <p class="couple-intro"
+                    data-aos="fade-up">
+
+                    Dengan memohon rahmat dan ridho Allah SWT,
+                    kami bermaksud menyelenggarakan pernikahan putra-putri kami.
+
+                </p>
+
                 <div class="couple-wrapper">
 
-                    <!-- Bride -->
+                    <!-- BRIDE -->
 
-                    <div
-                        class="couple-card bride-card"
+                    <div class="couple-card bride-card"
                         data-aos="fade-right">
 
-        
                         <div class="photo-frame">
 
-                            <img
-                                src="isma.jpg"
+                            <img src="isma.jpg"
                                 alt="Isma">
 
                         </div>
@@ -350,7 +373,9 @@
                             Bpk. Cecep Supriatna
                         </h4>
 
-                        <span>&</span>
+                        <span class="and-symbol">
+                            &
+                        </span>
 
                         <h4>
                             Ibu Neneng Ratnasari
@@ -358,25 +383,21 @@
 
                     </div>
 
-                    <!-- Ampersand -->
-
-                    <div
-                        class="couple-separator"
+                    <div class="couple-separator"
                         data-aos="zoom-in">
 
-                        &
+                        <img src="gold-divider.png">
+
                     </div>
 
-                    <!-- Groom -->
+                    <!-- GROOM -->
 
-                    <div
-                        class="couple-card groom-card"
+                    <div class="couple-card groom-card"
                         data-aos="fade-left">
 
                         <div class="photo-frame">
 
-                            <img
-                                src="adit.jpg"
+                            <img src="adit.jpg"
                                 alt="Adit">
 
                         </div>
@@ -393,7 +414,9 @@
                             Bpk. Apid Mahpudin
                         </h4>
 
-                        <span>&</span>
+                        <span class="and-symbol">
+                            &
+                        </span>
 
                         <h4>
                             Ibu Ati Rusmiati
@@ -412,31 +435,35 @@
         <!-- TURUT MENGUNDANG -->
         <!-- ========================= -->
 
-        <section id="family-section" class="section">
+        <section id="family-section"
+            class="section">
 
             <div class="container">
 
-                <div class="section-header" data-aos="fade-up">
+                <div class="section-header"
+                    data-aos="fade-up">
 
                     <h2 class="section-title">
+
                         Turut Mengundang
+
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
                 <div class="family-wrapper">
 
-                    <div
-                        class="family-card"
+                    <div class="family-card"
                         data-aos="fade-right">
 
                         <h3>
+
                             Keluarga Besar
                             Mempelai Wanita
+
                         </h3>
 
                         <ul>
@@ -452,13 +479,14 @@
 
                     </div>
 
-                    <div
-                        class="family-card"
+                    <div class="family-card"
                         data-aos="fade-left">
 
                         <h3>
+
                             Keluarga Besar
                             Mempelai Pria
+
                         </h3>
 
                         <ul>
@@ -490,14 +518,22 @@
 
             <div class="container">
 
-                <div class="section-header">
+                <div class="section-header"
+                    data-aos="fade-up">
+
+                    <span class="section-subtitle">
+
+                        Menuju Hari Bahagia
+
+                    </span>
 
                     <h2 class="section-title">
+
                         Save The Date
+
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
@@ -505,23 +541,35 @@
                 <div class="countdown-wrapper">
 
                     <div class="count-box">
+
                         <h2 id="days">00</h2>
+
                         <span>Hari</span>
+
                     </div>
 
                     <div class="count-box">
+
                         <h2 id="hours">00</h2>
+
                         <span>Jam</span>
+
                     </div>
 
                     <div class="count-box">
+
                         <h2 id="minutes">00</h2>
+
                         <span>Menit</span>
+
                     </div>
 
                     <div class="count-box">
+
                         <h2 id="seconds">00</h2>
+
                         <span>Detik</span>
+
                     </div>
 
                 </div>
@@ -529,8 +577,6 @@
             </div>
 
         </section>
-
-
         <!-- ========================= -->
         <!-- LOVE STORY -->
         <!-- ========================= -->
@@ -541,27 +587,32 @@
 
                 <div class="section-header" data-aos="fade-up">
 
+                    <span class="section-subtitle">
+                        Perjalanan Cinta Kami
+                    </span>
+
                     <h2 class="section-title">
                         Love Story
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
-                <div class="timeline">
+                <div class="love-timeline">
 
-                    <div
-                        class="timeline-item"
-                        data-aos="fade-right">
+                    <div class="timeline-line"></div>
 
-                        <div class="timeline-year">
-                            2024
-                        </div>
+                    <div class="timeline-item" data-aos="fade-right">
 
-                        <div class="timeline-content">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-card">
+
+                            <span class="timeline-date">
+                                2024
+                            </span>
 
                             <h3>
                                 Awal Pertemuan
@@ -578,50 +629,52 @@
 
                     </div>
 
-                    <div
-                        class="timeline-item"
+                    <div class="timeline-item reverse"
                         data-aos="fade-left">
 
-                        <div class="timeline-year">
-                            26 Juni 2025
-                        </div>
+                        <div class="timeline-dot"></div>
 
-                        <div class="timeline-content">
+                        <div class="timeline-card">
+
+                            <span class="timeline-date">
+                                26 Juni 2025
+                            </span>
 
                             <h3>
                                 Pendekatan
                             </h3>
 
                             <p>
-                                Kami memilih untuk bertemu dan menjalani hubungan
-                                dengan komunikasi yang baik. Saling bertukar
-                                cerita, berbagi perjalanan hidup, dan belajar
-                                memahami satu sama lain.
+                                Kami memilih untuk bertemu dan menjalani
+                                hubungan dengan komunikasi yang baik,
+                                saling bertukar cerita, berbagi perjalanan
+                                hidup, dan belajar memahami satu sama lain.
                             </p>
 
                         </div>
 
                     </div>
 
-                    <div
-                        class="timeline-item"
+                    <div class="timeline-item"
                         data-aos="fade-right">
 
-                        <div class="timeline-year">
-                            05 Juli 2026
-                        </div>
+                        <div class="timeline-dot"></div>
 
-                        <div class="timeline-content">
+                        <div class="timeline-card">
+
+                            <span class="timeline-date">
+                                05 Juli 2026
+                            </span>
 
                             <h3>
                                 Pernikahan
                             </h3>
 
                             <p>
-                                Dengan izin Allah SWT kami memutuskan melangkah
-                                ke jenjang pernikahan untuk memulai kehidupan
-                                baru sebagai pasangan suami istri hingga maut
-                                memisahkan.
+                                Dengan izin Allah SWT kami memutuskan
+                                melangkah ke jenjang pernikahan untuk
+                                memulai kehidupan baru sebagai pasangan
+                                suami istri hingga maut memisahkan.
                             </p>
 
                         </div>
@@ -634,53 +687,58 @@
 
         </section>
 
+
         <!-- ========================= -->
-        <!-- GALLERY SECTION -->
-        <!-- PART 3 MULAI DARI SINI -->
+        <!-- GALLERY -->
         <!-- ========================= -->
-                 <section id="gallery-section" class="section">
+
+        <section id="gallery-section" class="section">
 
             <div class="container">
 
-                <div class="section-header" data-aos="fade-up">
+                <div class="section-header"
+                    data-aos="fade-up">
+
+                    <span class="section-subtitle">
+                        Momen Bahagia
+                    </span>
 
                     <h2 class="section-title">
                         Gallery
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
                 <div class="gallery-grid">
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="1.jpg" alt="">
                     </div>
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="2.jpg" alt="">
                     </div>
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="3.jpg" alt="">
                     </div>
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="4.jpg" alt="">
                     </div>
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="5.jpg" alt="">
                     </div>
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="6.jpg" alt="">
                     </div>
 
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-aos="zoom-in">
                         <img src="7.jpg" alt="">
                     </div>
 
@@ -692,84 +750,134 @@
 
 
         <!-- ========================= -->
-        <!-- AKAD -->
+        <!-- EVENT -->
         <!-- ========================= -->
 
-        <section id="akad-section" class="section">
+        <section id="event-section" class="section">
 
             <div class="container">
 
-                <div class="event-card" data-aos="fade-up">
+                <div class="section-header"
+                    data-aos="fade-up">
 
-                    <h2>Akad Nikah</h2>
+                    <span class="section-subtitle">
+                        Dengan Memohon Ridho Allah SWT
+                    </span>
 
-                    <p>Minggu, 05 Juli 2026</p>
+                    <h2 class="section-title">
+                        Wedding Event
+                    </h2>
 
-                    <h3>09:00 WIB</h3>
+                    <img src="gold-divider.png"
+                        class="section-divider">
 
-                    <p>
-                        KP Sindanglengo
-                    </p>
+                </div>
 
-                    <p>
-                        Jln Pajagalan KP Sindanglengo RT 02 / RW 01
-                        Desa Tarajusari Kecamatan Banjaran
-                    </p>
+                <div class="event-wrapper">
 
-                    <a
-                        href="https://www.google.com/maps?q=-7.0415854,107.5914203&z=17&hl=en"
-                        target="_blank"
-                        class="location-btn">
+                    <!-- AKAD -->
 
-                        Buka Maps
+                    <div class="event-card"
+                        data-aos="fade-right">
 
-                    </a>
-        </div>
+                        <img src="moon.png"
+                            class="event-icon">
 
-            </div>
+                        <h2>
+                            Akad Nikah
+                        </h2>
 
-        </section>
+                        <h3>
+                            Minggu
+                        </h3>
 
+                        <p>
+                            05 Juli 2026
+                        </p>
 
-        <!-- ========================= -->
-        <!-- RESEPSI -->
-        <!-- ========================= -->
+                        <h4>
+                            09:00 WIB
+                        </h4>
 
-        <section id="reception-section" class="section">
+                        <div class="event-divider"></div>
 
-            <div class="container">
+                        <p class="event-location">
 
-                <div class="event-card" data-aos="fade-up">
+                            KP Sindanglengo
 
-                    <h2>Resepsi</h2>
+                        </p>
 
-                    <p>Minggu, 05 Juli 2026</p>
+                        <p class="event-address">
 
-                    <h3>11:00 WIB - Selesai</h3>
+                            Jln Pajagalan KP Sindanglengo
+                            RT 02 / RW 01
+                            Desa Tarajusari Kecamatan Banjaran
 
-                    <p>
-                        Lapang Wakaf
-                    </p>
+                        </p>
 
-                    <p>
-                        Lapang Wakaf Sindang Lengo
-                    </p>
+                        <a href="https://www.google.com/maps?q=-7.0415854,107.5914203&z=17"
+                            target="_blank"
+                            class="location-btn">
 
-                    <a
-                        href="https://www.google.com/maps?q=-7.0415854,107.5914203&z=17&hl=en"
-                        target="_blank"
-                        class="location-btn">
+                            Buka Maps
 
-                        Buka Maps
+                        </a>
 
-                    </a>
+                    </div>
+
+                    <!-- RESEPSI -->
+
+                    <div class="event-card"
+                        data-aos="fade-left">
+
+                        <img src="moon.png"
+                            class="event-icon">
+
+                        <h2>
+                            Resepsi
+                        </h2>
+
+                        <h3>
+                            Minggu
+                        </h3>
+
+                        <p>
+                            05 Juli 2026
+                        </p>
+
+                        <h4>
+                            11:00 WIB - Selesai
+                        </h4>
+
+                        <div class="event-divider"></div>
+
+                        <p class="event-location">
+
+                            Lapang Wakaf
+
+                        </p>
+
+                        <p class="event-address">
+
+                            Lapang Wakaf Sindang Lengo
+
+                        </p>
+
+                        <a href="https://www.google.com/maps?q=-7.0415854,107.5914203&z=17"
+                            target="_blank"
+                            class="location-btn">
+
+                            Buka Maps
+
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </section>
-
 
         <!-- ========================= -->
         <!-- WEDDING GIFT -->
@@ -779,21 +887,30 @@
 
             <div class="container">
 
-                <div class="section-header">
+                <div class="section-header" data-aos="fade-up">
+
+                    <span class="section-subtitle">
+                        Tanda Kasih
+                    </span>
 
                     <h2 class="section-title">
                         Wedding Gift
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
-                <div class="gift-card">
+                <div class="gift-card"
+                    data-aos="zoom-in">
 
-                    <h3>BCA</h3>
+                    <img src="bca.png"
+                        class="bank-logo">
+
+                    <h3>
+                        Bank BCA
+                    </h3>
 
                     <h2 id="rekeningNumber">
                         8103103612
@@ -828,82 +945,91 @@
 
                 <div class="section-header">
 
+                    <span class="section-subtitle">
+                        Konfirmasi Kehadiran
+                    </span>
+
                     <h2 class="section-title">
-                        RSVP Kehadiran
+                        RSVP
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
-               <form id="rsvpForm" class="rsvp-form">
+                <form id="rsvpForm"
+                    class="rsvp-form">
 
-    <input
-        type="text"
-        id="rsvpName"
-        placeholder="Nama Anda"
-        required>
+                    <input
+                        type="text"
+                        id="rsvpName"
+                        placeholder="Nama Anda"
+                        required>
 
-    <select
-        id="attendance"
-        required>
+                    <select
+                        id="attendance"
+                        required>
 
-        <option value="">
-            Pilih Kehadiran
-        </option>
+                        <option value="">
+                            Pilih Kehadiran
+                        </option>
 
-        <option value="Hadir">
-            InsyaAllah Hadir
-        </option>
+                        <option value="Hadir">
+                            InsyaAllah Hadir
+                        </option>
 
-        <option value="Tidak Hadir">
-            Mohon Maaf Tidak Bisa Hadir
-        </option>
+                        <option value="Tidak Hadir">
+                            Mohon Maaf Tidak Bisa Hadir
+                        </option>
 
-    </select>
+                    </select>
 
-    <button type="submit">
-        Kirim Konfirmasi Kehadiran
-    </button>
+                    <button type="submit">
 
-</form>
-               <div class="rsvp-summary">
+                        Kirim Konfirmasi
 
-    <div class="rsvp-count total">
+                    </button>
 
-        <h3 id="totalRsvp">0</h3>
+                </form>
 
-        <p>Total </p>
+                <div class="rsvp-summary">
 
-    </div>
+                    <div class="rsvp-count">
 
-    <div class="rsvp-count hadir">
+                        <h3 id="totalRsvp">
+                            0
+                        </h3>
 
-        <h3 id="hadirCount">0</h3>
+                        <p>Total</p>
 
-        <p>Hadir</p>
+                    </div>
 
-    </div>
+                    <div class="rsvp-count">
 
-    <div class="rsvp-count tidak-hadir">
+                        <h3 id="hadirCount">
+                            0
+                        </h3>
 
-        <h3 id="tidakHadirCount">0</h3>
+                        <p>Hadir</p>
 
-        <p>Tidak Hadir</p>
+                    </div>
 
-    </div>
+                    <div class="rsvp-count">
 
-</div>
+                        <h3 id="tidakHadirCount">
+                            0
+                        </h3>
 
-<h3 class="rsvp-title">
+                        <p>Tidak Hadir</p>
 
-Daftar Kehadiran
+                    </div>
 
-</h3>
+                </div>
 
-<div id="rsvpList"></div>
+                <div id="rsvpList">
+
+                </div>
 
             </div>
 
@@ -911,26 +1037,31 @@ Daftar Kehadiran
 
 
         <!-- ========================= -->
-        <!-- UCAPAN & DOA -->
+        <!-- UCAPAN -->
         <!-- ========================= -->
 
-        <section id="wishes-section" class="section">
+        <section id="wishes-section"
+            class="section">
 
             <div class="container">
 
                 <div class="section-header">
 
+                    <span class="section-subtitle">
+                        Kirimkan Doa Terbaik
+                    </span>
+
                     <h2 class="section-title">
                         Ucapan & Doa
                     </h2>
 
-                    <img
-                        src="gold-divider.png"
+                    <img src="gold-divider.png"
                         class="section-divider">
 
                 </div>
 
-                <form id="wishForm" class="wish-form">
+                <form id="wishForm"
+                    class="wish-form">
 
                     <input
                         type="text"
@@ -962,31 +1093,40 @@ Daftar Kehadiran
 
 
         <!-- ========================= -->
-        <!-- PENUTUP -->
+        <!-- CLOSING -->
         <!-- ========================= -->
 
         <section id="closing-section">
 
-            <div class="container">
+            <img src="closing.jpg"
+                class="closing-bg">
 
-                <div class="closing-content">
+            <div class="closing-overlay"></div>
 
-                    <h2>
-                        Terima Kasih
-                    </h2>
+            <div class="closing-content">
 
-                    <p>
-                        Merupakan suatu kehormatan dan kebahagiaan
-                        bagi kami apabila Bapak/Ibu/Saudara/i
-                        berkenan hadir dan memberikan doa restu
-                        untuk pernikahan kami.
-                    </p>
+                <img src="moon.png"
+                    class="closing-moon">
 
-                    <h3>
-                        Adit & Isma
-                    </h3>
+                <h2>
+                    Terima Kasih
+                </h2>
 
-                </div>
+                <p>
+
+                    Merupakan suatu kehormatan dan
+                    kebahagiaan bagi kami apabila
+                    Bapak/Ibu/Saudara/i berkenan hadir
+                    serta memberikan doa restu untuk
+                    pernikahan kami.
+
+                </p>
+
+                <h3>
+
+                    Adit & Isma
+
+                </h3>
 
             </div>
 
@@ -1027,6 +1167,18 @@ Daftar Kehadiran
 
 
     <!-- ========================= -->
+    <!-- MUSIC BUTTON -->
+    <!-- ========================= -->
+
+    <button id="musicToggle"
+        class="music-toggle">
+
+        ♫
+
+    </button>
+
+
+    <!-- ========================= -->
     <!-- BACK TO TOP -->
     <!-- ========================= -->
 
@@ -1035,25 +1187,15 @@ Daftar Kehadiran
         ↑
 
     </button>
- <audio
-    id="backgroundMusic"
-    loop>
 
-    <source
-        src="anugerah-terindah.mp3"
-        type="audio/mpeg">
-
-</audio>
 
     <!-- AOS -->
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-
     <!-- DATA -->
 
     <script src="wedding-data.js"></script>
-
 
     <!-- JS -->
 
@@ -1068,4 +1210,5 @@ Daftar Kehadiran
     <script type="module" src="firestore.js"></script>
 
 </body>
+
 </html>
