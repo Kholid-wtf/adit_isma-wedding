@@ -1,9 +1,10 @@
 // ======================================
-// MAIN.JS
-// Adit & Isma Wedding
+// MAIN.JS (UPGRADED FINAL)
 // ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const data = window.weddingData;
 
     const loadingScreen = document.getElementById("loading-screen");
     const openButton = document.getElementById("openInvitationBtn");
@@ -13,109 +14,116 @@ document.addEventListener("DOMContentLoaded", () => {
     const copyBtn = document.getElementById("copyRekeningBtn");
 
     // ======================================
+    // 🔥 SET DATA KE HTML (INI INTI)
+    // ======================================
+
+    // TITLE
+    document.title = data.opening.names + " Wedding Invitation";
+
+    // OPENING
+    setText("openingTitle", data.opening.title);
+    setText("openingNames", data.opening.names);
+    setText("openingDate", data.opening.date);
+    setText("openingText", data.opening.text);
+
+    // HERO
+    setImage("heroImage", data.hero.image);
+    setText("heroTitle", data.opening.title);
+    setText("heroNames", data.opening.names);
+    setText("heroDate", data.opening.date);
+
+    // QURAN
+    setText("quranArabic", data.quran.arab);
+    setText("quranTranslation", data.quran.translation);
+    setText("quranSource", data.quran.source);
+
+    // COUPLE
+    setImage("bridePhoto", data.couple.bride.photo);
+    setText("brideName", data.couple.bride.fullName);
+    setText("brideFather", data.couple.bride.father);
+    setText("brideMother", data.couple.bride.mother);
+
+    setImage("groomPhoto", data.couple.groom.photo);
+    setText("groomName", data.couple.groom.fullName);
+    setText("groomFather", data.couple.groom.father);
+    setText("groomMother", data.couple.groom.mother);
+
+    // FAMILY
+    const brideList = document.getElementById("familyBride");
+    const groomList = document.getElementById("familyGroom");
+
+    data.families.bride.forEach(item => {
+        brideList.innerHTML += `<li>${item}</li>`;
+    });
+
+    data.families.groom.forEach(item => {
+        groomList.innerHTML += `<li>${item}</li>`;
+    });
+
+    // MUSIC
+    if (backgroundMusic) {
+        backgroundMusic.src = data.music.file;
+    }
+
+    // ======================================
     // LOADING SCREEN
     // ======================================
 
     setTimeout(() => {
-
         if (loadingScreen) {
-
             loadingScreen.style.opacity = "0";
-
             setTimeout(() => {
-
                 loadingScreen.style.display = "none";
-
             }, 800);
-
         }
-
     }, 1800);
-
 
     // ======================================
     // OPEN INVITATION
     // ======================================
 
     if (openButton) {
-
         openButton.addEventListener("click", () => {
 
             const openingSection =
                 document.getElementById("opening-section");
 
-            document.body.classList.add(
-                "invitation-open"
-            );
+            document.body.classList.add("invitation-open");
 
-            if (openingSection) {
+            if (openingSection) openingSection.style.display = "none";
+            if (mainContent) mainContent.style.display = "block";
 
-                openingSection.style.display = "none";
-
+            if (backgroundMusic) {
+                backgroundMusic.play().catch(() => {});
             }
 
-            if (mainContent) {
-
-                mainContent.style.display = "block";
-
-            }
-
-            try {
-
-                backgroundMusic.play();
-
-            } catch (err) {
-
-                console.log(err);
-
-            }
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
-
     }
-
 
     // ======================================
     // COPY REKENING
     // ======================================
 
     if (copyBtn) {
-
         copyBtn.addEventListener("click", async () => {
-
             try {
 
                 await navigator.clipboard.writeText(
-                    "8103103612"
+                    data.gift.accountNumber
                 );
 
-                copyBtn.innerText =
-                    "Nomor Rekening Tersalin ✓";
+                copyBtn.innerText = "Tersalin ✓";
 
                 setTimeout(() => {
+                    copyBtn.innerText = "Salin Rekening";
+                }, 2000);
 
-                    copyBtn.innerText =
-                        "Salin Nomor Rekening";
-
-                }, 2500);
-
-            } catch (error) {
-
-                alert(
-                    "Gagal menyalin nomor rekening"
-                );
-
+            } catch {
+                alert("Gagal menyalin");
             }
-
         });
-
     }
-
 
     // ======================================
     // BACK TO TOP
@@ -124,72 +132,52 @@ document.addEventListener("DOMContentLoaded", () => {
     if (backToTop) {
 
         window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 500) {
-
-                backToTop.style.display = "flex";
-
-            } else {
-
-                backToTop.style.display = "none";
-
-            }
-
+            backToTop.style.display =
+                window.scrollY > 500 ? "flex" : "none";
         });
 
         backToTop.addEventListener("click", () => {
-
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
-
         });
 
     }
-
 
     // ======================================
     // AOS INIT
     // ======================================
 
     if (typeof AOS !== "undefined") {
-
         AOS.init({
-
             duration: 1200,
-
             once: true,
-
             offset: 100
-
         });
-
     }
 
-
     // ======================================
-    // PRELOAD GALLERY
+    // PRELOAD GALLERY (DARI DATA)
     // ======================================
 
-    const galleryImages = [
-
-        "1.jpg",
-        "2.jpg",
-        "3.jpg",
-        "4.jpg",
-        "5.jpg",
-        "6.jpg",
-        "7.jpg"
-
-    ];
-
-    galleryImages.forEach((src) => {
-
+    data.gallery.forEach(src => {
         const img = new Image();
-
         img.src = src;
-
     });
 
 });
+
+// ======================================
+// 🔧 HELPER FUNCTION (BIAR CLEAN)
+// ======================================
+
+function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = value;
+}
+
+function setImage(id, src) {
+    const el = document.getElementById(id);
+    if (el) el.src = src;
+}
