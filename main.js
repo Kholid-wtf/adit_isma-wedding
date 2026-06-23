@@ -1,6 +1,6 @@
 // ======================================
 // MAIN.JS
-// CLEAN VERSION
+// PREMIUM WEDDING VERSION
 // ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("copyRekeningBtn");
 
     // ======================================
-    // LOADING
+    // MAIN CONTENT HIDDEN
+    // ======================================
+
+    if (mainContent) {
+
+        mainContent.style.display = "none";
+
+    }
+
+    // ======================================
+    // LOADING SCREEN
     // ======================================
 
     setTimeout(() => {
@@ -50,29 +60,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // OPEN INVITATION
     // ======================================
 
-    if (mainContent) {
-
-        mainContent.style.display = "none";
-
-    }
-
     if (openButton) {
 
         openButton.addEventListener("click", () => {
 
             if (openingSection) {
 
-                openingSection.style.opacity = "0";
-
-                openingSection.style.transition =
-                    "all .8s ease";
+                openingSection.classList.add(
+                    "opening-hide"
+                );
 
                 setTimeout(() => {
 
                     openingSection.style.display =
                         "none";
 
-                }, 800);
+                }, 1000);
 
             }
 
@@ -80,6 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 mainContent.style.display =
                     "block";
+
+                setTimeout(() => {
+
+                    mainContent.classList.add(
+                        "content-show"
+                    );
+
+                }, 100);
 
             }
 
@@ -111,19 +122,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
 
+                const rekening =
+                    document.getElementById(
+                        "rekeningNumber"
+                    );
+
                 await navigator.clipboard.writeText(
-                    "8103103612"
+                    rekening.innerText
                 );
 
                 copyBtn.innerText =
-                    "Berhasil Disalin ✓";
+                    "✓ Berhasil Disalin";
 
                 setTimeout(() => {
 
                     copyBtn.innerText =
                         "Salin Nomor Rekening";
 
-                }, 2000);
+                }, 2500);
 
             } catch {
 
@@ -143,7 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (backToTop) {
 
-        backToTop.style.display = "none";
+        backToTop.style.display =
+            "none";
 
         window.addEventListener("scroll", () => {
 
@@ -175,7 +192,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ======================================
-    // AOS
+    // PRELOAD GALLERY
+    // ======================================
+
+    const galleryImages = [
+
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "6.jpg",
+        "7.jpg"
+
+    ];
+
+    galleryImages.forEach(src => {
+
+        const img = new Image();
+
+        img.src = src;
+
+    });
+
+    // ======================================
+    // SCROLL ANIMATION
     // ======================================
 
     if (typeof AOS !== "undefined") {
@@ -184,10 +225,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
             duration: 1200,
             once: true,
-            offset: 100
+            offset: 120
 
         });
 
     }
+
+    // ======================================
+    // HERO PARALLAX
+    // ======================================
+
+    const heroBg =
+        document.querySelector(".hero-bg");
+
+    window.addEventListener("scroll", () => {
+
+        if (heroBg) {
+
+            const scrolled =
+                window.pageYOffset;
+
+            heroBg.style.transform =
+                `translateY(${scrolled * 0.2}px)`;
+
+        }
+
+    });
 
 });
