@@ -151,6 +151,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
+    // ======================================
+    // AUTO START
+    // ======================================
+
+    const openButton =
+        document.getElementById(
+            "openInvitationBtn"
+        );
+
+    if (openButton) {
+
+        openButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await audio.play();
+
+                    updateButton();
+
+                } catch (error) {
+
+                    console.log(
+                        error
+                    );
+
+                }
+
+            }
+        );
+
+    }
 
     // ======================================
     // PAGE VISIBILITY
