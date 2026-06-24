@@ -1,40 +1,16 @@
 // ======================================
 // MAIN.JS
-// PREMIUM WEDDING VERSION
+// Adit & Isma Wedding
 // ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const loadingScreen =
-        document.getElementById("loading-screen");
-
-    const openButton =
-        document.getElementById("openInvitationBtn");
-
-    const openingSection =
-        document.getElementById("opening-section");
-
-    const mainContent =
-        document.getElementById("mainContent");
-
-    const backgroundMusic =
-        document.getElementById("backgroundMusic");
-
-    const backToTop =
-        document.getElementById("backToTop");
-
-    const copyBtn =
-        document.getElementById("copyRekeningBtn");
-
-    // ======================================
-    // MAIN CONTENT HIDDEN
-    // ======================================
-
-    if (mainContent) {
-
-        mainContent.style.display = "none";
-
-    }
+    const loadingScreen = document.getElementById("loading-screen");
+    const openButton = document.getElementById("openInvitationBtn");
+    const mainContent = document.getElementById("mainContent");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    const backToTop = document.getElementById("backToTop");
+    const copyBtn = document.getElementById("copyRekeningBtn");
 
     // ======================================
     // LOADING SCREEN
@@ -56,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, 1800);
 
+
     // ======================================
     // OPEN INVITATION
     // ======================================
@@ -64,84 +41,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
         openButton.addEventListener("click", () => {
 
+            const openingSection =
+                document.getElementById("opening-section");
+
+            document.body.classList.add(
+                "invitation-open"
+            );
+
             if (openingSection) {
 
-                openingSection.classList.add(
-                    "opening-hide"
-                );
-
-                setTimeout(() => {
-
-                    openingSection.style.display =
-                        "none";
-
-                }, 1000);
+                openingSection.style.display = "none";
 
             }
 
             if (mainContent) {
 
-                mainContent.style.display =
-                    "block";
-
-                setTimeout(() => {
-
-                    mainContent.classList.add(
-                        "content-show"
-                    );
-
-                }, 100);
+                mainContent.style.display = "block";
 
             }
 
-            if (backgroundMusic) {
+            try {
 
-                backgroundMusic.play()
-                    .catch(() => {});
+                backgroundMusic.play();
+
+            } catch (err) {
+
+                console.log(err);
 
             }
 
             window.scrollTo({
-
                 top: 0,
                 behavior: "smooth"
-
             });
 
         });
 
     }
 
+
     // ======================================
     // COPY REKENING
     // ======================================
 
-    if (copyBtn) {
+   // ======================================
+// COPY REKENING
+// ======================================
 
-        copyBtn.addEventListener("click", async () => {
+const copyAccountBtn =
+    document.getElementById(
+        "copyAccount"
+    );
 
-            try {
+if(copyAccountBtn){
 
-                const rekening =
-                    document.getElementById(
-                        "rekeningNumber"
+    copyAccountBtn.addEventListener(
+        "click",
+        async () => {
+
+            const rekening =
+                document
+                .getElementById(
+                    "accountNumber"
+                )
+                ?.textContent
+                .trim();
+
+            if(!rekening) return;
+
+            try{
+
+                await navigator
+                    .clipboard
+                    .writeText(
+                        rekening
                     );
 
-                await navigator.clipboard.writeText(
-                    rekening.innerText
-                );
-
-                copyBtn.innerText =
+                copyAccountBtn.innerHTML =
                     "✓ Berhasil Disalin";
 
                 setTimeout(() => {
 
-                    copyBtn.innerText =
-                        "Salin Nomor Rekening";
+                    copyAccountBtn.innerHTML =
+                    "Salin Nomor Rekening";
 
-                }, 2500);
+                },2000);
 
-            } catch {
+            }catch(err){
 
                 alert(
                     "Gagal menyalin nomor rekening"
@@ -149,9 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-        });
+        }
+    );
 
-    }
+}
+
 
     // ======================================
     // BACK TO TOP
@@ -159,20 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (backToTop) {
 
-        backToTop.style.display =
-            "none";
-
         window.addEventListener("scroll", () => {
 
             if (window.scrollY > 500) {
 
-                backToTop.style.display =
-                    "flex";
+                backToTop.style.display = "flex";
 
             } else {
 
-                backToTop.style.display =
-                    "none";
+                backToTop.style.display = "none";
 
             }
 
@@ -181,15 +164,33 @@ document.addEventListener("DOMContentLoaded", () => {
         backToTop.addEventListener("click", () => {
 
             window.scrollTo({
-
                 top: 0,
                 behavior: "smooth"
-
             });
 
         });
 
     }
+
+
+    // ======================================
+    // AOS INIT
+    // ======================================
+
+    if (typeof AOS !== "undefined") {
+
+        AOS.init({
+
+            duration: 1200,
+
+            once: true,
+
+            offset: 100
+
+        });
+
+    }
+
 
     // ======================================
     // PRELOAD GALLERY
@@ -207,48 +208,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ];
 
-    galleryImages.forEach(src => {
+    galleryImages.forEach((src) => {
 
         const img = new Image();
 
         img.src = src;
-
-    });
-
-    // ======================================
-    // SCROLL ANIMATION
-    // ======================================
-
-    if (typeof AOS !== "undefined") {
-
-        AOS.init({
-
-            duration: 1200,
-            once: true,
-            offset: 120
-
-        });
-
-    }
-
-    // ======================================
-    // HERO PARALLAX
-    // ======================================
-
-    const heroBg =
-        document.querySelector(".hero-bg");
-
-    window.addEventListener("scroll", () => {
-
-        if (heroBg) {
-
-            const scrolled =
-                window.pageYOffset;
-
-            heroBg.style.transform =
-                `translateY(${scrolled * 0.2}px)`;
-
-        }
 
     });
 
