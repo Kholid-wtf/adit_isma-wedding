@@ -1,8 +1,17 @@
 // ======================================
-// GUEST.JS PREMIUM
+// GUEST.JS
+// Nama Tamu Otomatis dari URL
 // ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // ======================================
+    // AMBIL PARAMETER URL
+    // ======================================
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
 
     const guestNameElement =
         document.getElementById("guestName");
@@ -13,61 +22,89 @@ document.addEventListener("DOMContentLoaded", () => {
     const wishNameInput =
         document.getElementById("wishName");
 
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
+    // ======================================
+    // FORMAT NAMA
+    // ======================================
 
-    let guestName =
-        params.get("to") ||
-        params.get("guest") ||
-        params.get("nama");
+    const formatGuestName = (name) => {
 
-    function formatName(name) {
+        if (!name) return "";
 
-        if (!name)
-            return "Tamu Undangan";
-
-        return decodeURIComponent(name)
+        return name
             .replace(/\+/g, " ")
-            .trim()
-            .split(" ")
-            .map(word =>
-                word.charAt(0).toUpperCase() +
-                word.slice(1)
-            )
-            .join(" ");
+            .replace(/%20/g, " ")
+            .trim();
+
+    };
+
+    // ======================================
+    // PRIORITAS PARAMETER
+    // ?to=
+    // ======================================
+
+    let guestName = params.get("to");
+
+    if (!guestName) {
+
+        guestName = params.get("guest");
 
     }
 
-    guestName =
-        formatName(guestName);
+    if (!guestName) {
 
-    if (guestNameElement) {
-
-        guestNameElement.textContent =
-            guestName;
+        guestName = params.get("nama");
 
     }
 
-    if (rsvpNameInput) {
+    guestName = formatGuestName(guestName);
 
-        rsvpNameInput.value =
-            guestName ===
-            "Tamu Undangan"
-                ? ""
-                : guestName;
+    // ======================================
+    // TAMPILKAN KE HALAMAN
+    // ======================================
 
-    }
+    if (guestName) {
 
-    if (wishNameInput) {
+        if (guestNameElement) {
 
-        wishNameInput.value =
-            guestName ===
-            "Tamu Undangan"
-                ? ""
-                : guestName;
+            guestNameElement.textContent =
+                guestName;
+
+        }
+
+        if (rsvpNameInput) {
+
+            rsvpNameInput.value =
+                guestName;
+
+        }
+
+        if (wishNameInput) {
+
+            wishNameInput.value =
+                guestName;
+
+        }
+
+    } else {
+
+        if (guestNameElement) {
+
+            guestNameElement.textContent =
+                "Tamu Undangan";
+
+        }
 
     }
 
 });
+
+
+// ======================================
+// CONTOH LINK
+// ======================================
+
+// ?to=Manda
+// ?to=Kevin
+// ?to=Kholid
+// ?to=Pak%20Asep%20Supir
+// ?to=Teh%20Lia
