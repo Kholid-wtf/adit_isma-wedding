@@ -3,7 +3,7 @@
 // RSVP + Wishes Realtime
 // ======================================
 
-import { db } from "./firebase-config.js";
+import { db } from "firebase-config.js";
 
 import {
     collection,
@@ -12,7 +12,8 @@ import {
     query,
     orderBy,
     onSnapshot
-} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 
 // ======================================
@@ -79,15 +80,16 @@ if (rsvpForm) {
 
                 rsvpForm.reset();
 
-           } catch (error) {
+            } catch (error) {
 
-    console.error(error);
+                console.error(error);
 
-    alert(
-        "RSVP Error: " + error.message
-    );
+                alert(
+                    "Gagal mengirim RSVP."
+                );
 
-}
+            }
+
         }
     );
 
@@ -167,7 +169,7 @@ if (wishForm) {
 
 
 // ======================================
-// REALTIME WISHES
+// REALTIME WISHES PREMIUM
 // ======================================
 
 const wishList =
@@ -192,6 +194,18 @@ if (wishList) {
 
             wishList.innerHTML = "";
 
+            const wishTotal =
+                document.getElementById(
+                    "wishTotal"
+                );
+
+            if (wishTotal) {
+
+                wishTotal.textContent =
+                    snapshot.size;
+
+            }
+
             snapshot.forEach(
                 (doc) => {
 
@@ -203,59 +217,36 @@ if (wishList) {
                             "div"
                         );
 
-                    const date =
-                        data.createdAt
-                            ? data.createdAt.toDate()
-                            : new Date();
+                    item.classList.add(
+                        "wish-item"
+                    );
 
-                    item.className =
-                        "wish-card";
+                    const avatar =
+                        data.name
+                        ?.charAt(0)
+                        ?.toUpperCase() || "?";
 
                     item.innerHTML = `
 
-                        <div class="wish-header">
+                        <div class="wish-avatar">
 
-                            <div class="wish-avatar">
-
-                                ${(data.name || "?")
-                                    .charAt(0)
-                                    .toUpperCase()}
-
-                            </div>
-
-                            <div>
-
-                                <div class="wish-name">
-
-                                    ${data.name}
-
-                                </div>
-
-                                <div class="wish-date">
-
-                                    ${date.toLocaleDateString(
-                                        "id-ID"
-                                    )}
-
-                                    •
-
-                                    ${date.toLocaleTimeString(
-                                        "id-ID",
-                                        {
-                                            hour: "2-digit",
-                                            minute: "2-digit"
-                                        }
-                                    )}
-
-                                </div>
-
-                            </div>
+                            ${avatar}
 
                         </div>
 
-                        <div class="wish-message">
+                        <div class="wish-content">
 
-                            ${data.message}
+                            <h4>
+
+                                ${data.name}
+
+                            </h4>
+
+                            <p>
+
+                                ${data.message}
+
+                            </p>
 
                         </div>
 
@@ -274,25 +265,29 @@ if (wishList) {
 }
 
 // ======================================
-// REALTIME RSVP
+// REALTIME RSVP LIST
 // ======================================
 
-const rsvpList =
+const attendanceList =
     document.getElementById(
-        "rsvpList"
+        "attendanceList"
     );
 
-if (rsvpList) {
+const hadirCount =
+    document.getElementById(
+        "hadirCount"
+    );
 
-    const hadirCount =
-        document.getElementById(
-            "hadirCount"
-        );
+const tidakHadirCount =
+    document.getElementById(
+        "tidakHadirCount"
+    );
 
-    const tidakHadirCount =
-        document.getElementById(
-            "tidakHadirCount"
-        );
+if (
+    attendanceList &&
+    hadirCount &&
+    tidakHadirCount
+) {
 
     const rsvpQuery =
         query(
@@ -307,65 +302,66 @@ if (rsvpList) {
         rsvpQuery,
         (snapshot) => {
 
-            rsvpList.innerHTML = "";
+            attendanceList.innerHTML = "";
 
             let hadir = 0;
             let tidakHadir = 0;
-            let total = 0;
-            
-            snapshot.forEach((doc) => {
-            
-                const data = doc.data();
-            
-                if (data.status === "Hadir") {
-            
-                    hadir++;
-            
-                }
-            
-                if (data.status === "Tidak Hadir") {
-            
-                    tidakHadir++;
-            
-                }
-            
-                total++;
-            
-                const item = document.createElement("div");
-            
-                item.className = "rsvp-card";
-            
-                item.innerHTML = `
-                    <div class="rsvp-header">
-            
-                        <div class="avatar">
-                            ${(data.name || "?").charAt(0).toUpperCase()}
+
+            snapshot.forEach(
+                (doc) => {
+
+                    const data =
+                        doc.data();
+
+                    if (
+                        data.status ===
+                        "Hadir"
+                    ) {
+
+                        hadir++;
+
+                    } else {
+
+                        tidakHadir++;
+
+                    }
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+                    item.classList.add(
+                        "attendance-item"
+                    );
+
+                    item.innerHTML = `
+                        <div class="attendance-name">
+                            👤 ${data.name}
                         </div>
-            
-                        <div>
-            
-                            <div class="rsvp-name">
-                                ${data.name}
-                            </div>
-            
-                            <div class="rsvp-status ${data.status === "Hadir" ? "hadir" : "tidak"}">
-                                ${data.status === "Hadir" ? "🟢 Hadir" : "🔴 Tidak Hadir"}
-                            </div>
-            
+
+                        <div class="attendance-status">
+                            ${
+                                data.status === "Hadir"
+                                ? "✔ InsyaAllah Hadir"
+                                : "❌ Tidak Hadir"
+                            }
                         </div>
-            
-                    </div>
-                `;
-            
-                rsvpList.appendChild(item);
-            
-            });
-            
-            document.getElementById("totalRsvp").textContent = total;
-            
-            hadirCount.textContent = hadir;
-            
-            tidakHadirCount.textContent = tidakHadir;
+                    `;
+
+                    attendanceList.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+            hadirCount.textContent =
+                hadir;
+
+            tidakHadirCount.textContent =
+                tidakHadir;
+
         }
     );
 
