@@ -1,276 +1,253 @@
 // ======================================
-// GALLERY.JS PREMIUM V2
+// PREMIUM GALLERY
 // ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const images =
-        document.querySelectorAll(
-            ".gallery-item img"
-        );
+    const images = document.querySelectorAll(".gallery-item img");
 
     if (!images.length) return;
 
-    let currentIndex = 0;
+    const preview = document.getElementById("galleryPreview");
+    const counter = document.getElementById("galleryCount");
 
-    const lightbox =
-        document.createElement("div");
+    const nextBtn = document.querySelector(".gallery-nav.next");
+    const prevBtn = document.querySelector(".gallery-nav.prev");
 
-    lightbox.id = "galleryLightbox";
+    let current = 0;
 
-    lightbox.innerHTML = `
-        <span id="lightboxClose">&times;</span>
+    // ==============================
+    // UPDATE SHOWCASE
+    // ==============================
 
-        <button id="galleryPrev">
-            &#10094;
-        </button>
+    function updateGallery() {
 
-        <img id="lightboxImage">
+        preview.style.opacity = "0";
 
-        <button id="galleryNext">
-            &#10095;
-        </button>
-    `;
+        setTimeout(() => {
 
-    document.body.appendChild(
-        lightbox
-    );
+            preview.src = images[current].src;
 
-    // ============================
-    // STYLE
-    // ============================
+            document
+            .querySelector(".gallery-showcase")
+            .style
+            .setProperty(
 
-    Object.assign(
-        lightbox.style,
-        {
-            position: "fixed",
-            inset: "0",
-            background:
-                "rgba(0,0,0,.95)",
-            display: "none",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: "99999"
-        }
-    );
+            "--gallery-bg",
 
-    const img =
-        document.getElementById(
-            "lightboxImage"
-        );
+            `url('${images[current].src}')`
 
-    Object.assign(
-        img.style,
-        {
-            maxWidth: "90%",
-            maxHeight: "90%",
-            borderRadius: "18px",
-            transition:
-                "all .3s ease"
-        }
-    );
+            );
 
-    const close =
-        document.getElementById(
-            "lightboxClose"
-        );
+            preview.style.opacity = "1";
 
-    Object.assign(
-        close.style,
-        {
-            position: "absolute",
-            top: "20px",
-            right: "30px",
-            fontSize: "50px",
-            color: "#fff",
-            cursor: "pointer",
-            zIndex: "2"
-        }
-    );
+            counter.innerHTML =
+                `${current + 1} / ${images.length}`;
 
-    const prev =
-        document.getElementById(
-            "galleryPrev"
-        );
+        },200);
 
-    const next =
-        document.getElementById(
-            "galleryNext"
-        );
+    }
 
-    [prev, next].forEach(btn => {
+    updateGallery();
 
-        Object.assign(
-            btn.style,
-            {
-                position: "absolute",
-                background: "none",
-                border: "none",
-                color: "#fff",
-                fontSize: "45px",
-                cursor: "pointer"
-            }
-        );
+    // ==============================
+    // CLICK THUMBNAIL
+    // ==============================
+
+    images.forEach((img,index)=>{
+
+        img.addEventListener("click",()=>{
+
+            current=index;
+
+            updateGallery();
+
+        });
 
     });
 
-    prev.style.left = "20px";
-    next.style.right = "20px";
+    // ==============================
+    // NEXT
+    // ==============================
 
-    // ============================
-    // FUNCTIONS
-    // ============================
+    nextBtn.addEventListener("click",()=>{
 
-    function showImage(index) {
+        current++;
 
-        currentIndex = index;
+        if(current>=images.length){
 
-        img.src =
-            images[index].src;
+            current=0;
 
-        lightbox.style.display =
-            "flex";
+        }
 
-        document.body.style.overflow =
-            "hidden";
+        updateGallery();
+
+    });
+
+    // ==============================
+    // PREV
+    // ==============================
+
+    prevBtn.addEventListener("click",()=>{
+
+        current--;
+
+        if(current<0){
+
+            current=images.length-1;
+
+        }
+
+        updateGallery();
+
+    });
+
+    // ==============================
+    // AUTO SLIDE
+    // ==============================
+
+    setInterval(()=>{
+
+        current++;
+
+        if(current>=images.length){
+
+            current=0;
+
+        }
+
+        updateGallery();
+
+    },5000);
+
+    // ==============================
+    // KEYBOARD
+    // ==============================
+
+    document.addEventListener("keydown",(e)=>{
+
+        if(e.key==="ArrowRight"){
+
+            nextBtn.click();
+
+        }
+
+        if(e.key==="ArrowLeft"){
+
+            prevBtn.click();
+
+        }
+
+    });
+
+    // ==============================
+    // LIGHTBOX
+    // ==============================
+
+    const lightbox=document.createElement("div");
+
+    lightbox.id="galleryLightbox";
+
+    lightbox.innerHTML=`
+
+        <span id="lightboxClose">&times;</span>
+
+        <img id="lightboxImage">
+
+    `;
+
+    document.body.appendChild(lightbox);
+
+    Object.assign(lightbox.style,{
+
+        position:"fixed",
+
+        inset:"0",
+
+        display:"none",
+
+        justifyContent:"center",
+
+        alignItems:"center",
+
+        background:"rgba(15,8,10,.95)",
+
+        zIndex:"99999",
+
+        padding:"25px"
+
+    });
+
+    const lightboxImage=document.getElementById("lightboxImage");
+
+    Object.assign(lightboxImage.style,{
+
+        maxWidth:"92%",
+
+        maxHeight:"92%",
+
+        borderRadius:"22px",
+
+        border:"2px solid rgba(232,201,139,.45)"
+
+    });
+
+    const close=document.getElementById("lightboxClose");
+
+    Object.assign(close.style,{
+
+        position:"absolute",
+
+        right:"35px",
+
+        top:"25px",
+
+        color:"#fff",
+
+        fontSize:"55px",
+
+        cursor:"pointer"
+
+    });
+
+    preview.addEventListener("click",()=>{
+
+        lightbox.style.display="flex";
+
+        lightboxImage.src=preview.src;
+
+        document.body.style.overflow="hidden";
+
+    });
+
+    function closeLightbox(){
+
+        lightbox.style.display="none";
+
+        document.body.style.overflow="auto";
 
     }
 
-    function closeLightbox() {
+    close.addEventListener("click",closeLightbox);
 
-        lightbox.style.display =
-            "none";
+    lightbox.addEventListener("click",(e)=>{
 
-        document.body.style.overflow =
-            "auto";
+        if(e.target===lightbox){
 
-    }
-
-    function nextImage() {
-
-        currentIndex++;
-
-        if (
-            currentIndex >=
-            images.length
-        ) {
-
-            currentIndex = 0;
+            closeLightbox();
 
         }
 
-        img.src =
-            images[currentIndex].src;
+    });
 
-    }
+    document.addEventListener("keydown",(e)=>{
 
-    function prevImage() {
+        if(e.key==="Escape"){
 
-        currentIndex--;
-
-        if (
-            currentIndex < 0
-        ) {
-
-            currentIndex =
-                images.length - 1;
+            closeLightbox();
 
         }
 
-        img.src =
-            images[currentIndex].src;
-
-    }
-
-    // ============================
-    // EVENTS
-    // ============================
-
-    images.forEach(
-        (image, index) => {
-
-            image.addEventListener(
-                "click",
-                () => {
-
-                    showImage(
-                        index
-                    );
-
-                }
-            );
-
-        }
-    );
-
-    close.addEventListener(
-        "click",
-        closeLightbox
-    );
-
-    next.addEventListener(
-        "click",
-        nextImage
-    );
-
-    prev.addEventListener(
-        "click",
-        prevImage
-    );
-
-    lightbox.addEventListener(
-        "click",
-        (e) => {
-
-            if (
-                e.target ===
-                lightbox
-            ) {
-
-                closeLightbox();
-
-            }
-
-        }
-    );
-
-    document.addEventListener(
-        "keydown",
-        (e) => {
-
-            if (
-                lightbox.style.display !==
-                "flex"
-            ) return;
-
-            if (
-                e.key ===
-                "Escape"
-            ) {
-
-                closeLightbox();
-
-            }
-
-            if (
-                e.key ===
-                "ArrowRight"
-            ) {
-
-                nextImage();
-
-            }
-
-            if (
-                e.key ===
-                "ArrowLeft"
-            ) {
-
-                prevImage();
-
-            }
-
-        }
-    );
+    });
 
 });
